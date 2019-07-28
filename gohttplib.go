@@ -27,21 +27,18 @@ import (
 )
 
 var cpointers = PtrProxy()
-var srv http.Server = http.Server
+var srv http.Server = http.Server{}
 
 //export ListenAndServe
 func ListenAndServe(caddr *C.char) {
 	addr := C.GoString(caddr)
 	srv.Addr = addr
-	Shutdown()
 	srv.ListenAndServe()
 }
 
 // export Shutdown
 func Shutdown() {
-	http.HandleFunc("/shutdown", func(w http.ResponseWriter, r *http.Request) {
-		srv.Shutdown(context.Background())
-	})
+	srv.Shutdown(context.Background())
 }
 
 //export HandleFunc
