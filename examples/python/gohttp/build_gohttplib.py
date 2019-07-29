@@ -22,7 +22,7 @@ void Call_HandleFunc(ResponseWriterPtr w, Request *r, FuncPtr *fn);
 
 void ListenAndServe(char* p0);
 
-void Shutdown()
+void Shutdown();
 
 void HandleFunc(char* p0, FuncPtr* p1);
 
