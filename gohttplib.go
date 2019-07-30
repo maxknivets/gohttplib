@@ -36,7 +36,7 @@ func ListenAndServe(caddr *C.char) {
 	srv.ListenAndServe()
 }
 
-// export Shutdown
+//export Shutdown
 func Shutdown() {
 	srv.Shutdown(context.Background())
 }
